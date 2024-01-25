@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Icons</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 640 512'%3E%3Cpath d='M0 336c0 79.5 64.5 144 144 144H512c70.7 0 128-57.3 128-128c0-61.9-44-113.6-102.4-125.4c4.1-10.7 6.4-22.4 6.4-34.6c0-53-43-96-96-96c-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32C167.6 32 96 103.6 96 192c0 2.7 .1 5.4 .2 8.1C40.2 219.8 0 273.2 0 336z' fill='%2300bfff' /%3E%3C/svg%3E">
+
+
+</head>
+<body>
+    
+    <div class="slider-container">
+        <button id="prevButton" class="slider-button"><i class="fas fa-chevron-left"></i></button>
+
+        <div class="container-sun active">
+            <div class="box-shadow-sun"></div>
+            <div class="content-sun">
+                <div class="image-sun">
+                    <div class="sun"></div>
+                </div>
+                <div class="text-sun">
+                    <p class="city">Montevideo, Uruguay</p>
+                    <p class="day">MONDAY</p>
+                    <p class="grade">24°C</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-rain">
+            <div class="box-shadow-rain"></div>
+            <div class="content-rain">
+                <div class="image-rain">
+                    <div class="rain-cloud">
+                        <div class="raindrop"></div>
+                        <div class="raindrop"></div>
+                        <div class="raindrop"></div>
+                    </div>
+                </div>
+                <div class="text-rain">
+                    <p class="city">Bergen, Noruega</p>
+                    <p class="day">MONDAY</p>
+                    <p class="grade">8°C</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-sun-and-cloud">
+            <div class="box-shadow-sun-and-cloud"></div>
+            <div class="content-sun-and-cloud">
+                <div class="image-sun-and-cloud">
+                    <div class="sun-inner"></div>
+                    <div class="cloud-sun-inner"></div>
+                </div>
+                <div class="text-sun-and-cloud">
+                    <p class="city">Nairobi, Kenia</p>
+                    <p class="day">MONDAY</p>
+                    <p class="grade">16°C</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-cloud">
+            <div class="box-shadow-cloud"></div>
+            <div class="content-cloud">
+                <div class="image-cloud">
+                    <div class="cloud"></div>
+                </div>
+                <div class="text-cloud">
+                    <p class="city">Terranova, Canadá</p>
+                    <p class="day">MONDAY</p>
+                    <p class="grade">11°C</p>
+                </div>
+            </div>
+        </div>
+        <div class="container-storm">
+            <div class="box-shadow-storm"></div>
+            <div class="content-storm">
+                <div class="image-storm">
+                    <div class="cloud-storm">
+                        <div class="raindrop-storm"></div>
+                        <div class="raindrop-storm"></div>
+                        <div class="raindrop-storm"></div>
+                        <div class="bolt"></div>
+                    </div>
+                </div>
+                <div class="text-storm">
+                    <p class="city">Maracaibo, Venezuela</p>
+                    <p class="day">MONDAY</p>
+                    <p class="grade">11°C</p>
+                </div>
+            </div>
+        </div>
+
+        <button id="nextButton" class="slider-button"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <div class="github-container">
+        <a href="https://github.com/deveugenius/Weather-icons" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+
+    <script>
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        const containers = document.querySelectorAll('.slider-container > div');
+        let currentIndex = 0;
+
+        function showContainer(index) {
+            containers.forEach((container, i) => {
+                if (i === index) {
+                    container.classList.add('active');
+                } else {
+                    container.classList.remove('active');
+                }
+            });
+        }
+
+        showContainer(currentIndex);
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + containers.length) % containers.length;
+            showContainer(currentIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % containers.length;
+            showContainer(currentIndex);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + containers.length) % containers.length;
+                showContainer(currentIndex);
+            } else if (event.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % containers.length;
+                showContainer(currentIndex);
+            }
+        });
+    </script>
+</body>
+</html>
