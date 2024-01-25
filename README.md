@@ -34,10 +34,3 @@ The weather icons are designed to be responsive and will adapt to different scre
 
 If you want to contribute to this project or have ideas to enhance the weather icons, we are open to collaborations! Feel free to fork the repository, make improvements, and submit pull requests.
 
-## License
-
-This project is distributed under the MIT License. Please refer to the [LICENSE.md](LICENSE.md) file for more details.
-
----
-
-© Dev.Eugenius - [GitHub Profile](https://github.com/deveugenius)
