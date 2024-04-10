@@ -90,14 +90,16 @@ body {
   z-index: 999;
 }
 
-.github-container i {
-  font-size: 35px;
-  color: #333;
+.github-container p {
+  color: #757575;
 }
 
 .github-container i {
-  font-size: 40px;
-  color: #333;
+  color: #757575;
+}
+
+.github-container i {
+  color: #757575;
   transition: transform 0.3s;
 }
 
